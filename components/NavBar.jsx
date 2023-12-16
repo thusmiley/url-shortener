@@ -12,7 +12,7 @@ const NavBar = () => {
     <header className=" bg-white fixed left-0 right-0 top-0 z-10 lg:relative">
       <div className="px-6 py-10 flex justify-between items-center mx-auto lg:px-10 lg:py-[55px] xl:px-[165px] xl:max-w-[1536px]">
         <a href="/" className="cursor-pointer">
-          <Image src={logo} alt="Shortly logo" className="w-[120px] h-full object-contain object-center" />
+          <Image src={logo} alt="Shortly logo" className="w-[120px] h-auto object-contain object-center" />
         </a>
 
         <Image src={menuIcon} alt="open menu" className="w-6 h-full cursor-pointer object-contain object-center lg:hidden" onClick={() => setOpen(!open)} />

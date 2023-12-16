@@ -1,36 +1,39 @@
 "use client";
 
-require('dotenv').config()
+require("dotenv").config();
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const ShortenerForm = () => {
   const [longUrl, setLongUrl] = useState("");
+  const [tinyurl, setTinyurl] = useState("");
+  const [copySuccess, setCopySuccess] = useState("Copy");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const apiKey = process.env.NEXT_PUBLIC_TINY_URL_API;
-
   const onSubmit = (data) => {
     setLongUrl(data.urlInput);
+    setCopySuccess("Copy");
 
-    fetch("https://api.tinyurl.com/create", {
+    fetch(`https://api.tinyurl.com/create`, {
       method: "POST",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
+        authorization: `Bearer ${process.env.NEXT_PUBLIC_TINY_URL_API}`,
+        "content-type": "application/json",
       },
       body: JSON.stringify({
-        url: "www.brendengerber.com",
+        url: data.urlInput,
         domain: "tinyurl.com",
       }),
     })
       .then((response) => response.json())
       .then((response) => {
+        setTinyurl(response.data.tiny_url);
         console.log(response);
       })
       .catch((error) => console.log(error));
@@ -65,14 +68,24 @@ const ShortenerForm = () => {
         </div>
       </form>
 
-      <div className="mt-6 space-y-6 px-6 mx-auto lg:px-10 lg:space-y-4 w-full xl:px-[165px] xl:max-w-[1536px]">
-        <div className="bg-white rounded-[5px] pt-[6px] pb-4 px-4 text-[16px] leading-[36px] tracking-[.12px] font-medium relative overflow-hidden lg:py-[18px] lg:px-8 lg:flex lg:items-center xl:text-[20px] xl:tracking-[.15px]">
-          <p className="text-almostBlack pb-[6px] lg:pb-0 lg:w-[60%] truncate lg:mr-6">https://www.openai.io</p>
-          <div className="h-[1px] w-[110%] bg-grey/25 mx-auto absolute left-0 right-0 lg:hidden lg:w-[25%]" />
-          <p className="text-cyan pt-[6px] mb-2 truncate lg:mb-0 lg:pt-0 lg:mr-6">https://rel.ink/k4lKyk </p>
-          <button className="pt-[9px] pb-[7px] bg-cyan text-white w-full rounded-[5px] leading-auto tracking-normal font-bold lg:w-[15%]">Copy</button>
+      {longUrl !== "" && (
+        <div className="mt-6 space-y-6 px-6 mx-auto lg:px-10 lg:space-y-4 w-full xl:px-[165px] xl:max-w-[1536px]">
+          <div className="bg-white rounded-[5px] pt-[6px] pb-4 px-4 text-[16px] leading-[36px] tracking-[.12px] font-medium relative overflow-hidden lg:py-[18px] lg:px-8 lg:flex lg:items-center xl:text-[20px] xl:tracking-[.15px]">
+            <p className="text-almostBlack pb-[6px] lg:pb-0 lg:w-[60%] truncate lg:mr-6">{longUrl}</p>
+            <div className="h-[1px] w-[110%] bg-grey/25 mx-auto absolute left-0 right-0 lg:hidden lg:w-[25%]" />
+            <p className="text-cyan pt-[6px] mb-2 truncate lg:mb-0 lg:pt-0 lg:mr-6">{tinyurl} </p>
+            <button
+              className={`pt-[9px] pb-[7px] bg-cyan text-white w-full rounded-[5px] leading-auto tracking-normal font-bold lg:w-[15%] ${copySuccess === 'Copied!' ? 'bg-darkViolet' : ''}`}
+              onClick={() => {
+                setCopySuccess("Copied!");
+                navigator.clipboard.writeText(tinyurl);
+              }}
+            >
+              {copySuccess}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
