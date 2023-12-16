@@ -11,7 +11,7 @@ const Stats = () => {
         Track how your links are performing across the web with our advanced statistics dashboard.
       </p>
 
-      <div className="mt-[92px] stats-bg space-y-[92px] px-6 mx-auto lg:px-10 lg:flex lg:justify-between lg:items-start lg:space-y-0 lg:mt-[100px] lg:space-x-[30px] xl:px-[165px] xl:max-w-[1440px]">
+      <div className="mt-[92px] stats-bg space-y-[92px] px-6 mx-auto lg:px-10 lg:flex lg:justify-between lg:items-start lg:space-y-0 lg:mt-[100px] lg:space-x-[30px] xl:px-[165px] xl:max-w-[1536px]">
         <div className="bg-white rounded-[5px] px-8 pb-10 relative">
           <div className="w-[88px] h-[88px] bg-darkViolet rounded-full grid place-content-center absolute top-[-44px] left-0 right-0 mx-auto lg:left-8 lg:mx-0">
             <Image src={iconBrand} alt="" className="w-10 h-10 object-contain object-center" />

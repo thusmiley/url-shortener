@@ -17,8 +17,8 @@ URL Shortening API Website
 
 ### Links
 
-- Git URL: 
-- Live Site URL: 
+- Git URL: https://github.com/thusmiley/url-shortener.git
+- Live Site URL: https://url-shortener-black-five.vercel.app/
 
 ### Built with
 
@@ -29,4 +29,4 @@ URL Shortening API Website
 - Tailwind
 - React (Nextjs)
 - React Hook Form
-- Bitly API
+- Bitly API (?)

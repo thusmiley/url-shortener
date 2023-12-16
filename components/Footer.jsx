@@ -4,7 +4,7 @@ import logoWhite from "../public/images/white-logo.svg";
 const Footer = () => {
   return (
     <footer className="bg-[#232127] ">
-      <div className="flex flex-col justify-center items-center py-[55px] lg:flex-row lg:justify-between lg:items-start lg:py-[72px] lg:px-10 lg:mx-auto xl:px-[165px] xl:max-w-[1440px]">
+      <div className="flex flex-col justify-center items-center py-[55px] lg:flex-row lg:justify-between lg:items-start lg:py-[72px] lg:px-10 lg:mx-auto xl:px-[165px] xl:max-w-[1536px]">
         <Image src={logoWhite} alt="shortly logo" className="w-[120px] h-full object-contain object-center lg:mr-[60px]" />
 
         <div className="lg:flex lg:items-start lg:space-x-[100px]">
