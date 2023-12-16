@@ -1,5 +1,6 @@
 "use client";
 
+require('dotenv').config()
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -15,7 +16,6 @@ const ShortenerForm = () => {
 
   const onSubmit = (data) => {
     setLongUrl(data.urlInput);
-    console.log(typeof data.urlInput);
 
     fetch("https://api.tinyurl.com/create", {
       method: "POST",
@@ -30,9 +30,8 @@ const ShortenerForm = () => {
       }),
     })
       .then((response) => response.json())
-      .then((shortenedUrl) => {
-        console.log(apiKey);
-        console.log("test test test", shortenedUrl);
+      .then((response) => {
+        console.log(response);
       })
       .catch((error) => console.log(error));
   };
