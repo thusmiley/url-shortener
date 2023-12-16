@@ -29,4 +29,4 @@ URL Shortening API Website
 - Tailwind
 - React (Nextjs)
 - React Hook Form
-- Bitly API (?)
+- TinyUrl API (free 600 Requests/month)
