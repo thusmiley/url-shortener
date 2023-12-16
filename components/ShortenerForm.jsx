@@ -11,7 +11,7 @@ const ShortenerForm = () => {
     formState: { errors },
   } = useForm();
 
-  const apiKey = process.env.TINY_URL_API;
+  const apiKey = process.env.NEXT_PUBLIC_TINY_URL_API;
 
   const onSubmit = (data) => {
     setLongUrl(data.urlInput);
