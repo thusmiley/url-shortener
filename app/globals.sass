@@ -1,0 +1,102 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+// base 
+@layer base 
+    *
+        box-sizing: border-box
+        margin: 0
+        padding: 0
+    
+    body
+        font-synthesis: none
+        text-rendering: optimizeLegibility
+        scroll-behavior: smooth
+        @apply font-poppins
+
+    input,
+    textarea,
+    button,
+    select,
+    a 
+        -webkit-tap-highlight-color: transparent
+
+    h1,h2,h3,h4,h5,h6
+        @apply text-almostBlack font-bold
+
+    h3
+        @apply text-[16px] tracking-[-.25px] text-white mb-[22px]
+
+    h4
+        @apply text-[15px] tracking-[-.23px] text-[#bfbfbf] cursor-pointer hover:text-cyan
+
+    p
+        @apply text-grey font-medium
+// components
+@layer components
+    .cta
+        @apply text-white py-[14px] px-10 bg-cyan rounded-full font-bold cursor-pointer hover:bg-[#9AE3E3]
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active 
+        // transition: #1f1f1f 5000000s ease-in-out 0s
+        -webkit-box-shadow: 0 0 0 30px #fff inset 
+        -webkit-text-fill-color: #34313D 
+        background-clip: content-box 
+
+// utitlities
+@layer utilities
+    .menu a
+        @apply hover:text-grey lg:hover:text-almostBlack
+        
+    .slide-in 
+        animation: slide-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+
+    .socials svg:hover path
+        @apply fill-cyan
+
+    @keyframes slide-in 
+        0% 
+            -webkit-transform: translateY(100px)
+            transform: translateY(100px)
+        100% 
+            -webkit-transform: translateY(0)
+            transform: translateY(0)
+
+    @screen xl
+        .hero-bg-xl
+            background: url('../public/images/illustration-working.svg') no-repeat
+            background-size: 733px 482px 
+            background-position: center right -150px
+
+    .form-bg
+        background: #3A3054 url('../public/images/bg-shorten-mobile.svg') no-repeat
+        background-size: contain
+        background-position: top -27px right 0
+        @screen md 
+            background: #3A3054 url('../public/images/bg-shorten-desktop.svg') no-repeat
+
+    .stats-bg
+        background: url('../public/images/cyan-line.png') no-repeat
+        background-size: contain
+        background-position: center bottom
+        @screen md 
+            background: url('../public/images/cyan-line-horizontal.png') no-repeat
+            background-size: 80% 8px
+            background-position: center center
+        @screen xl 
+            background: url('../public/images/cyan-line-horizontal.png') no-repeat
+            background-size: 60% 8px
+            background-position: center center
+
+    .cta-bg
+        background: #3A3054 url('../public/images/bg-boost-mobile.svg') no-repeat
+        background-size: cover
+        background-position: top right
+        @screen md 
+            background: #3A3054 url('../public/images/bg-boost-desktop.svg') no-repeat
+            background-size: cover
+            background-position: top right
