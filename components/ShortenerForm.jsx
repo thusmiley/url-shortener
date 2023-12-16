@@ -4,12 +4,38 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const ShortenerForm = () => {
+  const [longUrl, setLongUrl] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const apiKey = process.env.Tiny_Url;
+
+  const onSubmit = (data) => {
+    setLongUrl(data.urlInput);
+    console.log(data.urlInput);
+
+    fetch("https://api.tinyurl.com/create", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        url: longUrl,
+        domain: "tiny.one",
+      }),
+    })
+      .then((response) => response.json())
+      .then((shortenedUrl) => {
+        console.log(apiKey)
+        console.log("test test test", shortenedUrl);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <section className="bg-gradient-to-b from-white from-[91px] to-lightGrey to-[91px] flex flex-col items-center justify-center lg:from-[84px] lg:to-[84px]">
@@ -20,7 +46,8 @@ const ShortenerForm = () => {
             {...register("urlInput", {
               required: "Please add a link",
               pattern: {
-                value: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
+                value:
+                  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/,
                 message: "Wrong format",
               },
             })}
