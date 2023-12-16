@@ -11,11 +11,11 @@ const ShortenerForm = () => {
     formState: { errors },
   } = useForm();
 
-  const apiKey = process.env.Tiny_Url;
+  const apiKey = process.env.TINY_URL_API;
 
   const onSubmit = (data) => {
     setLongUrl(data.urlInput);
-    console.log(data.urlInput);
+    console.log(typeof data.urlInput);
 
     fetch("https://api.tinyurl.com/create", {
       method: "POST",
@@ -25,13 +25,13 @@ const ShortenerForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        url: longUrl,
-        domain: "tiny.one",
+        url: "www.brendengerber.com",
+        domain: "tinyurl.com",
       }),
     })
       .then((response) => response.json())
       .then((shortenedUrl) => {
-        console.log(apiKey)
+        console.log(apiKey);
         console.log("test test test", shortenedUrl);
       })
       .catch((error) => console.log(error));
