@@ -18,7 +18,7 @@ const ShortenerForm = () => {
 
     const parsedUrlList = savedInStorage !== null ? JSON.parse(savedInStorage) : [];
 
-    setUrlList(parsedUrlList.reverse());
+    setUrlList(parsedUrlList);
   }, []);
 
   const {
@@ -82,7 +82,7 @@ const ShortenerForm = () => {
       </div>
 
       <div className="mt-6 space-y-6 px-6 mx-auto lg:px-10 lg:space-y-4 w-full xl:px-[165px] xl:max-w-[1536px]">
-        {urlList?.map((obj, index) => (
+        {urlList.reverse().map((obj, index) => (
           <UrlCard key={index} longUrl={obj.data.url} tinyUrl={obj.data.tiny_url} />
         ))}
       </div>
