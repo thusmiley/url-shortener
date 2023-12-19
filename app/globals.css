@@ -26,7 +26,7 @@
   h3 {
     @apply text-[16px] tracking-[-.25px] text-white mb-[22px];
   }
-  h4 {
+  .footer-menu {
     @apply text-[15px] tracking-[-.23px] text-[#bfbfbf] cursor-pointer hover:text-cyan;
   }
   p {

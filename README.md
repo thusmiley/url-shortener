@@ -29,4 +29,5 @@ URL Shortening API Website
 - Tailwind
 - React (Nextjs)
 - React Hook Form
-- TinyUrl API (free 600 Requests/month)
+- TinyUrl API (free 600 requests/month)
+- Local storage

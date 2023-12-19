@@ -11,22 +11,22 @@ const Footer = () => {
           <div className="text-center mt-[50px] space-y-10 lg:flex lg:justify-start lg:items-start lg:space-y-0 lg:text-left lg:mt-0 lg:space-x-[78px]">
             <div className="space-y-[10px]">
               <h3>Features</h3>
-              <h4>Link Shortening</h4>
-              <h4>Branded Links</h4>
-              <h4>Analytics</h4>
+              <p className="footer-menu">Link Shortening</p>
+              <p className="footer-menu">Branded Links</p>
+              <p className="footer-menu">Analytics</p>
             </div>
             <div className="space-y-[10px]">
               <h3>Resources</h3>
-              <h4>Blog</h4>
-              <h4>Developers</h4>
-              <h4>Support</h4>
+              <p className="footer-menu">Blog</p>
+              <p className="footer-menu">Developers</p>
+              <p className="footer-menu">Support</p>
             </div>
             <div className="space-y-[10px]">
               <h3>Company</h3>
-              <h4>About</h4>
-              <h4>Our Team</h4>
-              <h4>Careers</h4>
-              <h4>Contact</h4>
+              <p className="footer-menu">About</p>
+              <p className="footer-menu">Our Team</p>
+              <p className="footer-menu">Careers</p>
+              <p className="footer-menu">Contact</p>
             </div>
           </div>
 
