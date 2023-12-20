@@ -41,7 +41,7 @@
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #fff inset;
+    -webkit-box-shadow: 0 0 0 40px #fff inset;
     -webkit-text-fill-color: #34313D;
     background-clip: content-box;
   }
